@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int fun(vector<int> nums,int a){
+        int ans=1;
+        for(int i=0;i<a;i++){
+            if(nums[i]<nums[a]){
+                ans=max(ans,fun(nums,i)+1);
+            }
+        }
+        return ans;
+    }
+    int lengthOfLIS(vector<int>& nums) {
+        int a=nums.size()-1;
+        int ans=0;
+        for(int i=0;i<=a;i++){
+        ans=max(ans,fun(nums,i));
+        }
+        return ans;
+    }
+};
